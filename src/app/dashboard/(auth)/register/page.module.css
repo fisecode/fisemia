@@ -1,8 +1,8 @@
 .container {
   display: flex;
-  align-items: center;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
   justify-content: center;
 }
 
@@ -17,10 +17,10 @@
   padding: 20px;
   background-color: transparent;
   border: 2px solid #bbb;
+  color: #bbb;
   border-radius: 5px;
   font-size: 20px;
   font-weight: bold;
-  color: #bbb;
 }
 
 .button {
@@ -32,4 +32,9 @@
   border-radius: 5px;
   color: #eee;
   font-weight: bold;
+}
+
+.link {
+  text-decoration: underline;
+  color: #7d7c7c;
 }

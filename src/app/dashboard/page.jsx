@@ -98,7 +98,7 @@ const Dashboard = () => {
           <input type="text" placeholder="Image" className={styles.input} />
           <textarea
             placeholder="Content"
-            className={styles.textarea}
+            className={styles.textArea}
             cols="30"
             rows="10"
           ></textarea>

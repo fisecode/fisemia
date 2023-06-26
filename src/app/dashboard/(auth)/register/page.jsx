@@ -1,12 +1,11 @@
 "use client";
-
 import React, { useState } from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Register = () => {
-  const [err, setErr] = useState(false);
+  const [error, setError] = useState(null);
 
   const router = useRouter();
 
@@ -28,38 +27,44 @@ const Register = () => {
           password,
         }),
       });
-
       res.status === 201 &&
         router.push("/dashboard/login?success=Account has been created");
     } catch (err) {
-      setErr(true);
+      setError(err);
+      console.log(err);
     }
   };
+
   return (
     <div className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <h1 className={styles.title}>Create an Account</h1>
+      <h2 className={styles.subtitle}>Please sign up to see the dashboard.</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input
           type="text"
-          placeholder="username"
-          className={styles.input}
+          placeholder="Username"
           required
+          className={styles.input}
         />
         <input
-          type="email"
-          placeholder="email"
-          className={styles.input}
+          type="text"
+          placeholder="Email"
           required
+          className={styles.input}
         />
         <input
           type="password"
-          placeholder="password"
-          className={styles.input}
+          placeholder="Password"
           required
+          className={styles.input}
         />
         <button className={styles.button}>Register</button>
+        {error && "Something went wrong!"}
       </form>
-      {err && "Something went wrong!"}
-      <Link href="/dashboard/login">Login with an existing account</Link>
+      <span className={styles.or}>- OR -</span>
+      <Link className={styles.link} href="/dashboard/login">
+        Login with an existing account
+      </Link>
     </div>
   );
 };
