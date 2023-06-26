@@ -16,6 +16,10 @@
   margin-bottom: 10px;
 }
 
+.img {
+  object-fit: cover;
+}
+
 .desc {
   font-size: 18px;
   color: #999;
